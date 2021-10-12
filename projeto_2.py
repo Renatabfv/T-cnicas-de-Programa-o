@@ -28,5 +28,5 @@ def main():
     mostrarNomesEstudante(listaEstudante)
 
 if(__name__ == "__main__"):
-    
+    main()
 
