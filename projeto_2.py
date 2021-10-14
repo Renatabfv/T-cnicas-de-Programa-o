@@ -12,21 +12,25 @@ def criarEstudante():
     return estudanteTemp
 
 def mostrarNomesEstudante(listaEstudante):
-    for Estudante in listaEstudante:
-        print(Estudante["nome"])
+    for estudante in listaEstudante:
+        print(estudante["nome"])
+
 
 def main():
-    listaEstudante = []
+    listaEstudante = [ ]
     qtdEstudante = int(input("Informe quantos estudantes você deseja salvar na lista: "))
-    contador = 0
+    ordemAlfabetica = (input("Deseja ordernar os usuarios por ordem alfabetica ?"))
 
+    contador = 0
     while(contador < qtdEstudante):
         estudanteTemp = criarEstudante()
         listaEstudante.append(estudanteTemp)
         contador = contador + 1
-    
-    mostrarNomesEstudante(listaEstudante)
+    if (ordemAlfabetica) == ("sim" or "Sim"):
+        mostrarNomesEstudante(listaEstudante.sort()) 
+    else:
+        mostrarNomesEstudante(listaEstudante)
 
-if(__name__ == "__main__"):
-    main()
 
+if (__name__) == ("__main__"):
+ main()
