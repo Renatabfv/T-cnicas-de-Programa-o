@@ -1,0 +1,56 @@
+def main():
+    listaEstudante = [ ]
+    qtdEstudante = int(input("Informe quantos estudantes você deseja salvar na lista \n"))
+    contador = 0
+      
+    def criarEstudante():
+        estudanteTemp = {}
+        estudanteTemp["nome"] = input("Digite o nome do estudante: \n")
+        estudanteTemp["email"] = input("Digite o email do estudante: \n")
+        return estudanteTemp
+
+    while(contador < qtdEstudante):
+        estudanteTemp = criarEstudante()
+        listaEstudante.append(estudanteTemp)
+        contador = contador + 1
+    
+
+def mostrarNomesEstudante(listaEstudante):
+    for estudante in listaEstudante:
+        print(estudante["nome"])
+
+
+def removerUsuario(listaEstudante):
+    usuarioRemovido = (input("Qual usuario deseja remover ? busque pelo email \n"))
+    for elemento in listaEstudante:
+        if usuarioRemovido == elemento["email"]:
+            listaEstudante.remove(elemento)
+            print("O usuario foi removido")
+
+def alterarUsuario(listaEstudante):             
+    encontrado = False
+    usuarioEmail = (input("Qual é o email do usuario que deseja alterar ? \n"))
+    for elemento in listaEstudante:
+        if elemento["email"] == usuarioEmail:
+            novoNome = input("Informe o novo nome: ")
+            elemento["nome"] = novoNome
+            encontrado = True
+            break
+    if encontrado == False:
+        print("Usuario nao encontrado") 
+
+def fazParte(listaEstudante):
+    nomeUsuario = (input("Qual usuario deseja verificar ? \n"))
+    for elemento in listaEstudante:
+        if nomeUsuario == elemento["nome"]:
+            print("O usuario existe na lista!")
+        else:
+            print("Este usuario nao esta na lista! ")
+
+def ordemAlfabetica(listaEstudante):
+    sortedEstudantes = sorted(listaEstudante, key=lambda x: x["nome"].lower())
+    mostrarNomesEstudante(sortedEstudantes)
+    
+
+if _name_ == "_main_":
+    main ()
